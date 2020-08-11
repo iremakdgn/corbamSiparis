@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".siparis_activity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:id="@+id/denealta">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:minHeight="?actionBarSize"
+                android:padding="@dimen/appbar_padding"
+                android:text="@string/app_name"
+                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="242dp"
+                android:layout_height="60dp"
+                android:paddingTop="14dp"
+                android:text=" Masa Numarası:"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="phone" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/title1"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:drawableRight="@android:drawable/arrow_down_float"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:minHeight="?actionBarSize"
+                android:padding="@dimen/appbar_padding"
+                android:text="SİPARİSLER "
+                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="208dp"
+                android:layout_height="60dp"
+                android:paddingTop="14dp"
+                android:text="Toplam:"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+
+        </LinearLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/denealta"
+        android:gravity="center_vertical">
+
+        <ListView
+            android:id="@+id/siparisydk"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        </ListView>
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/geribtn"
+            android:layout_width="62dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_button_shape"
+            android:drawableLeft="?attr/actionModeCloseDrawable"
+            android:text="Geri"
+            android:textColor="#000"></Button>
+
+        <Button
+            android:id="@+id/msykptbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_button_shape"
+            android:drawableRight="@android:drawable/checkbox_on_background"
+            android:text="Masayı Kapat"
+            android:textColor="#000"></Button>
+
+        <Button
+            android:id="@+id/sprseklebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_button_shape"
+            android:drawableRight="@drawable/ic_add_black_24dp"
+            android:text="Sipariş Ekle"
+            android:textColor="#000">
+
+        </Button>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/masakkisi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectangle_button_shape"
+                android:layout_weight="1"
+                android:textColor="#790380"
+                android:text="Masa 4 Kişilik" />
+
+            <TextView
+                android:id="@+id/masadurum"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:background="@drawable/rectangle_button_shape"
+                android:text="Aktif"
+                android:textColor="#790380" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

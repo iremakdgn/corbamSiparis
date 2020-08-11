@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="com.corba.corbam">
+
+    <dist:module dist:instant="true" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <application
+        android:allowBackup="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:icon="@drawable/food"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/food"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.corba.corbam.siparis_activity"
+            android:parentActivityName="com.corba.corbam.MasaSecimiActivity"
+            android:label="@string/title_activity_siparis_activity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity
+            android:name="com.corba.corbam.MasaSecimiActivity"
+            android:parentActivityName="com.corba.corbam.siparis_activity" />
+        <activity
+            android:name="com.corba.corbam.siparisAlactivity"
+            android:parentActivityName="com.corba.corbam.GirisActivity" />
+        <activity
+            android:name="com.corba.corbam.GirisActivity"
+            android:parentActivityName="com.corba.corbam.MainActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
