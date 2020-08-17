@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        new GetMasalar().execute();
 
-        new Login().execute();
+        //new Login().execute();
 
         btnclick = (Button) findViewById(R.id.btnclick);
 
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public class GetMasalar extends android.os.AsyncTask<Void, Void, List<Masa>> {
+    /*public class GetMasalar extends android.os.AsyncTask<Void, Void, List<Masa>> {
         @Override
         protected List<Masa> doInBackground(Void... voids) {
             MasaService m = new MasaService();
@@ -59,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
             }
             Toast.makeText(MainActivity.this, line, Toast.LENGTH_LONG).show();
         }
-    }
+    }*/
 
-    public class Login extends android.os.AsyncTask<Void, Void, Kullanici> {
+    /*public class Login extends android.os.AsyncTask<Void, Void, Kullanici> {
         @Override
         protected Kullanici doInBackground(Void... voids) {
             KullaniciService m = new KullaniciService();
@@ -75,5 +75,5 @@ public class MainActivity extends AppCompatActivity {
             String line = kullanici.toString();
             Toast.makeText(MainActivity.this, line, Toast.LENGTH_LONG).show();
         }
-    }
+    }*/
 }

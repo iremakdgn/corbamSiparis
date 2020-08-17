@@ -5,8 +5,8 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -17,9 +17,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import com.corba.corbam.Entities.Kullanici;
+import com.corba.corbam.Services.KullaniciService;
 
 public class GirisActivity extends AppCompatActivity {
 
@@ -27,8 +26,7 @@ public class GirisActivity extends AppCompatActivity {
     private Button btngarsongiris;
     private EditText mail, sifre;
     ProgressDialog progressDialog;
-    ConnectionClass connectionClass;
-    String rol;
+
     public void init() {
         actionbar_Login = (Toolbar) findViewById(R.id.actionbar_Login);
         setSupportActionBar(actionbar_Login);
@@ -45,14 +43,14 @@ public class GirisActivity extends AppCompatActivity {
         if ((keyCode == KeyEvent.KEYCODE_BACK)) {
             AlertDialog builder = new AlertDialog.Builder(GirisActivity.this).create();
             builder.setMessage("Çıkmak İstediğinizden Emin Misiniz?");
-            builder.setButton(AlertDialog.BUTTON_NEGATIVE,"VAZGEÇ", new DialogInterface.OnClickListener(){
+            builder.setButton(AlertDialog.BUTTON_NEGATIVE, "VAZGEÇ", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     //İptal butonuna basılınca yapılacaklar.Sadece kapanması isteniyorsa boş bırakılacak
                 }
             });
-            builder.setButton(AlertDialog.BUTTON_POSITIVE,"EVET", new DialogInterface.OnClickListener() {
+            builder.setButton(AlertDialog.BUTTON_POSITIVE, "EVET", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
-                    Intent intentbtn11= new Intent(GirisActivity.this, MainActivity.class);
+                    Intent intentbtn11 = new Intent(GirisActivity.this, MainActivity.class);
                     startActivity(intentbtn11);
 
                 }
@@ -60,9 +58,6 @@ public class GirisActivity extends AppCompatActivity {
             builder.show();
             builder.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.aktif));
             builder.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.pasif));
-
-
-
         }
         return super.onKeyDown(keyCode, event);
     }
@@ -79,25 +74,57 @@ public class GirisActivity extends AppCompatActivity {
         mail = findViewById(R.id.txtEmailLogin);
         sifre = findViewById(R.id.txtPasswordLogin);
         progressDialog = new ProgressDialog(this);
-
-
         btngarsongiris.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rol="garson";
-                Dologin doregister = new Dologin();
-                doregister.execute("");
+                new Login(mail.getText().toString(), sifre.getText().toString(), "garson").execute();
             }
         });
 
 
     }
 
- public void hideKeyboard(View view ){
-     InputMethodManager in=(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
-     in.hideSoftInputFromWindow(view.getWindowToken(),0);
- }
-    private class Dologin extends AsyncTask<String, String, String> {
+    public class Login extends android.os.AsyncTask<String, Void, Kullanici> {
+        String kullaniciAdi, sifre, rol;
+
+        public Login(String kullaniciAdi, String sifre, String rol) {
+            this.kullaniciAdi = kullaniciAdi;
+            this.sifre = sifre;
+            this.rol = rol;
+        }
+
+        @Override
+        protected Kullanici doInBackground(String... voids) {
+            KullaniciService m = new KullaniciService();
+            Kullanici list = m.Login(kullaniciAdi, sifre, rol);
+            return list;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progressDialog.setMessage("Yükleniyor...");
+            progressDialog.show();
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Kullanici kullanici) {
+            progressDialog.dismiss();
+            if (kullanici == null) {
+                Toast.makeText(GirisActivity.this, "Hatalı kullanıcı adı şifre", Toast.LENGTH_LONG).show();
+                return;
+            }
+            Intent intent = new Intent(GirisActivity.this, MasaSecimiActivity.class);
+            startActivity(intent);
+            super.onPostExecute(kullanici);
+        }
+    }
+
+    public void hideKeyboard(View view) {
+        InputMethodManager in = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        in.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+    /*private class Dologin extends AsyncTask<String, String, String> {
 
         String namestr = mail.getText().toString();
         String passstr = sifre.getText().toString();
@@ -113,7 +140,7 @@ public class GirisActivity extends AppCompatActivity {
             super.onPreExecute();
         }
 
-        @Override
+       /* @Override
         protected String doInBackground(String... params) {
             System.out.println("4");
             if (namestr.trim().equals("") || passstr.trim().equals(""))
@@ -171,6 +198,6 @@ public class GirisActivity extends AppCompatActivity {
         }
 
 
-    }
+    }*/
 
 }

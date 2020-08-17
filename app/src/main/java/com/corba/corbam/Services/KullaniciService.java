@@ -11,9 +11,9 @@ import retrofit2.Call;
 public class KullaniciService {
     static RestInterface restInterface;
 
-    public Kullanici Login(String kullaniciAdi, String sifre) {
+    public Kullanici Login(String kullaniciAdi, String sifre, String rol) {
         restInterface = APIClient.getClient().create(RestInterface.class);
-        Call<Kullanici> call = restInterface.login(kullaniciAdi, sifre);
+        Call<Kullanici> call = restInterface.login(kullaniciAdi, sifre, rol);
         try {
             Kullanici kullanici = call.execute().body();
             return kullanici;
