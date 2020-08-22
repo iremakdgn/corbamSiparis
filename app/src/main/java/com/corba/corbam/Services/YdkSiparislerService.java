@@ -34,10 +34,10 @@ public class YdkSiparislerService {
         }
     }
 
-    public YdkSiparisler DeleteYdkSiparisler() {
+    public YdkSiparisler DeleteYdkSiparisler(int id) {
         try {
             restInterface = APIClient.getClient().create(RestInterface.class);
-            Call<YdkSiparisler> call = restInterface.deleteYdkSiparisler();
+            Call<YdkSiparisler> call = restInterface.deleteYdkSiparisler(id);
             YdkSiparisler ydkSiparisler = call.execute().body();
             return ydkSiparisler;
         } catch (IOException e) {

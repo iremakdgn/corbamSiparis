@@ -53,7 +53,7 @@ public interface RestInterface {
     Call<YdkSiparisler> deleteYdkSiparislerByMasaNo(@Query("masano") String masano);
 
     @DELETE("YdkSiparisler")
-    Call <YdkSiparisler> deleteYdkSiparisler();
+    Call <YdkSiparisler> deleteYdkSiparisler(@Query("id") int id);
 
     @GET("Menu")
     Call<List<Menu>> getMenu();
