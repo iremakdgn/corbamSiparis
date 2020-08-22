@@ -1,8 +1,6 @@
 package com.corba.corbam.Services;
 
-import com.corba.corbam.Entities.Masa;
 import com.corba.corbam.Entities.Menu;
-
 import java.io.IOException;
 import java.util.List;
 
@@ -27,12 +25,11 @@ public class MenuService {
         try {
         restInterface = APIClient.getClient().create(RestInterface.class);
         Call<Menu> call = restInterface.getMenuById(urunid);
-            Menu menuler = call.execute().body();// Expected BEGIN_OBJECT but was BEGIN_ARRAY at line 1 column 2 path $
+            Menu menuler = call.execute().body();
             return menuler;
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
     }
-
 }

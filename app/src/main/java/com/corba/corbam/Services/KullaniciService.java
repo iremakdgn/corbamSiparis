@@ -1,11 +1,7 @@
 package com.corba.corbam.Services;
 
 import com.corba.corbam.Entities.Kullanici;
-import com.corba.corbam.Entities.Masa;
-
 import java.io.IOException;
-import java.util.List;
-
 import retrofit2.Call;
 
 public class KullaniciService {

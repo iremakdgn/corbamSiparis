@@ -1,8 +1,6 @@
 package com.corba.corbam.Services;
 
-import com.corba.corbam.Entities.Kullanici;
 import com.corba.corbam.Entities.Siparis;
-
 import java.io.IOException;
 import java.sql.Time;
 import java.text.DateFormat;

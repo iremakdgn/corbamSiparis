@@ -26,7 +26,7 @@ public class YdkSiparislerService {
         try {
             restInterface = APIClient.getClient().create(RestInterface.class);
             Call<YdkSiparisler> call = restInterface.deleteYdkSiparislerByMasaNo(masano);
-            YdkSiparisler ydkSiparisler = call.execute().body();//delette geriye alıyorsun hata
+            YdkSiparisler ydkSiparisler = call.execute().body();
             return ydkSiparisler;
         } catch (IOException e) {
             e.printStackTrace();
@@ -50,7 +50,7 @@ public class YdkSiparislerService {
         try {
             restInterface = APIClient.getClient().create(RestInterface.class);
             Call<Void> call = restInterface.postYdkSiparisler(ydkSiparis);
-            call.execute();//geriye değer alınmayacaksa body yazman patlatır dene patlarsa da yine kolon isimleri tiplerindendir ben cıktım acnım
+            call.execute();
         } catch (IOException e) {
             e.printStackTrace();
         }

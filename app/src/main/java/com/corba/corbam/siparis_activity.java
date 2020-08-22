@@ -1,8 +1,6 @@
 package com.corba.corbam;
 
-
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -41,11 +38,7 @@ public class siparis_activity extends AppCompatActivity {
     public static Double toplamfiyat = 0.0;
     public static String masakapasite;
     public static String secilimasadurumu;
-    ProgressDialog progressDialog;
-    ConnectionClass connectionClass;
     String glnmasano;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,25 +58,20 @@ public class siparis_activity extends AppCompatActivity {
 
         new GetYdkSiparisler(glnmasano).execute();
 
-        //new GetMasalarByMasano(glnmasano).execute();
-
         textView.setText(" Masa Numarası: " + glnmasano);
-
-//        siparislistesi doregister = new siparislistesi();
-//        doregister.execute("");
 
         geribtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentbtn11 = new Intent(siparis_activity.this, MasaSecimiActivity.class);
-                startActivity(intentbtn11);
+                Intent intentbtn = new Intent(siparis_activity.this, MasaSecimiActivity.class);
+                startActivity(intentbtn);
             }
         });
         sprseklebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentbtn11 = new Intent(siparis_activity.this, siparisAlactivity.class);
-                startActivity(intentbtn11);
+                Intent intentbtn = new Intent(siparis_activity.this, siparisAlactivity.class);
+                startActivity(intentbtn);
             }
         });
         msykptbtn.setOnClickListener(new View.OnClickListener() {
@@ -97,19 +85,13 @@ public class siparis_activity extends AppCompatActivity {
 
                     builder.setButton(AlertDialog.BUTTON_NEGATIVE, "İPTAL", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            //İptal butonuna basılınca yapılacaklar.Sadece kapanması isteniyorsa boş bırakılacak
                         }
                     });
                     builder.setButton(AlertDialog.BUTTON_POSITIVE, "TAMAM", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            //burada siparişi aktarma async calısacak
-//                            siparisiaktar doregisteraktar = new siparisiaktar();
                             new AsyncIslemiTamamla().execute();
-//                            doregisteraktar.execute("");
-                            Intent intentbtn11 = new Intent(siparis_activity.this, MasaSecimiActivity.class);
-                            startActivity(intentbtn11);
-
-
+                            Intent intentbtn = new Intent(siparis_activity.this, MasaSecimiActivity.class);
+                            startActivity(intentbtn);
                         }
                     });
                     builder.show();
@@ -117,12 +99,8 @@ public class siparis_activity extends AppCompatActivity {
                     builder.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.pasif));
                 } else if (siparsiler.size() == 0) {
                     new AsyncIslemiTamamla().execute();
-
-//                    siparisiaktar doregisteraktar = new siparisiaktar();
-//                    System.out.println("1");
-//                    doregisteraktar.execute("");
-                    Intent intentbtn11 = new Intent(siparis_activity.this, siparis_activity.class);
-                    startActivity(intentbtn11);
+                    Intent intentbtn = new Intent(siparis_activity.this, siparis_activity.class);
+                    startActivity(intentbtn);
                 }
             }
         });
@@ -184,12 +162,8 @@ public class siparis_activity extends AppCompatActivity {
             dakika.format(time);
             tarih.format(date);
             RefreshAdapter();
-            //toplamfiyat=0.0;
         }
-
     }
-
-
     public class AsyncIslemiTamamla extends android.os.AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... params) {
@@ -253,12 +227,7 @@ public class siparis_activity extends AppCompatActivity {
 
     public class myAdaptor extends ArrayAdapter<masaSiparisAl> {
         ArrayList<masaSiparisAl> arr;
-        //private TextView text;
         LayoutInflater layoutInflater;
-        //String glnmasano;
-       // Double toplamfiyat = 0.0;
-        //TextView textView1;
-        ListView siparisydk;
 
         public myAdaptor(Context context, int textViewResourceId, ArrayList<masaSiparisAl> mList) {
             super(context, textViewResourceId, mList);
@@ -290,7 +259,7 @@ public class siparis_activity extends AppCompatActivity {
                     new DeleteYdkSiparisler(msiparsal.getId()).execute();
                     toplamfiyat = toplamfiyat - Double.parseDouble(msiparsal.getFiyat());
                     textView1.setText(" TOPLAM : " + toplamfiyat.toString() + " TL");
-                    arr.remove(position);//bu ekrandan siliyor buna bakma
+                    arr.remove(position);
                     RefreshAdapter();
 
                 }

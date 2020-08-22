@@ -67,9 +67,8 @@ public interface RestInterface {
     @POST("SiparisListesi")
     Call<SiparisListesi> postSiparisListesi(@Query("spid") Siparis spid, @Query("menuid") int menuid, @Query("urunad") String urunad, @Query("urunfiyat") String urunfiyat);
 
-    @PUT("Masalar")// parametre isimleri aynı olmak zorunda
+    @PUT("Masalar")
     Call<Void> updateMasaDurumByMasaNo(@Query("masano") String glnmasano, @Query("durum") String durum);
-
 
     @POST("YdkSiparisler")
     Call<Void> postYdkSiparisler(@Body YdkSiparisler ydkSiparis);
