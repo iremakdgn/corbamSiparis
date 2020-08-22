@@ -10,11 +10,12 @@ import retrofit2.Call;
 
 public class MenuService {
     static RestInterface restInterface;
+
     public List<Menu> GetMenu() {
+        try {
         restInterface = APIClient.getClient().create(RestInterface.class);
         Call<List<Menu>> call = restInterface.getMenu();
-        try {
-            List<Menu> menuler = call.execute().body();
+        List<Menu> menuler = call.execute().body();
             return menuler;
         } catch (IOException e) {
             e.printStackTrace();
@@ -22,15 +23,16 @@ public class MenuService {
         }
     }
 
-    public Menu GetMenuByUrunId(int urunid) {
-        restInterface = APIClient.getClient().create(RestInterface.class);
-        Call <Menu> call = restInterface.getMenuByUrunId(urunid);
+    public Menu GetMenuById(int urunid) {
         try {
-            Menu menuler = call.execute().body();
+        restInterface = APIClient.getClient().create(RestInterface.class);
+        Call<Menu> call = restInterface.getMenuById(urunid);
+            Menu menuler = call.execute().body();// Expected BEGIN_OBJECT but was BEGIN_ARRAY at line 1 column 2 path $
             return menuler;
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
     }
+
 }

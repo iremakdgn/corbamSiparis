@@ -1,32 +1,29 @@
 package com.corba.corbam;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import com.corba.corbam.Entities.Menu;
+import com.corba.corbam.Entities.YdkSiparisler;
+import com.corba.corbam.Services.MasaService;
+import com.corba.corbam.Services.MenuService;
+import com.corba.corbam.Services.YdkSiparislerService;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class siparisAlactivity extends AppCompatActivity {
 
@@ -59,17 +56,38 @@ public class siparisAlactivity extends AppCompatActivity {
         glnmasano = ms.gndrmasano;
         masanoo.setText(" Masa Numarası: " + glnmasano);
 
-        listeleme doregister = new listeleme();
-        System.out.println("1");
-        doregister.execute("");
-        myAdaptor adaptor = new myAdaptor(siparisAlactivity.this, 1, menulist);
-        listmenu.setAdapter(adaptor);
-
+        //listeleme doregister = new listeleme();
+        //System.out.println("1");
+        //doregister.execute("");
+        new GetMenu().execute();
 
     }
 
+    private void RefreshAdapter() {
+        myAdaptor adaptor = new myAdaptor(siparisAlactivity.this, 1, menulist);
+        listmenu.setAdapter(adaptor);
+    }
 
-    public class listeleme extends AsyncTask<String, String, String> {
+    public class GetMenu extends android.os.AsyncTask<Void, Void, List<Menu>> {
+        @Override
+        protected List<Menu> doInBackground(Void... voids) {
+            MenuService m = new MenuService();
+            List<Menu> list = m.GetMenu();
+            return list;
+        }
+
+        @Override
+        protected void onPostExecute(List<Menu> menus) {
+            //menulist.clear();
+            for (Menu m : menus) {
+                menulist.add(new menu(m.getId(), m.getAd(), m.getFiyat(), m.getTur()));
+            }
+            RefreshAdapter();
+        }
+    }
+
+
+   /* public class listeleme extends AsyncTask<String, String, String> {
 
         String z = "";
 
@@ -117,7 +135,7 @@ public class siparisAlactivity extends AppCompatActivity {
         }
 
 
-    }
+    }*/
 
 
     public class myAdaptor extends ArrayAdapter<menu> {
@@ -136,12 +154,12 @@ public class siparisAlactivity extends AppCompatActivity {
             satirView = layoutInflater.inflate(R.layout.menuliste, null);
 
             TextView msid = (TextView) satirView.findViewById(R.id.msid);
-            TextView mnad = (TextView) satirView.findViewById(R.id.lblmsad);
-            TextView mnfyt = (TextView) satirView.findViewById(R.id.lblfiyat);
+            final TextView mnad = (TextView) satirView.findViewById(R.id.lblmsad);
+            final TextView mnfyt = (TextView) satirView.findViewById(R.id.lblfiyat);
             ImageButton btekle = (ImageButton) satirView.findViewById(R.id.btnekle);
             final menu mn = arr.get(position);
             msid.setText(String.valueOf(mn.getId()));
-            mnad.setText(mn.getAd().toString());
+            mnad.setText(mn.getAd());
             mnfyt.setText(mn.getFiyat());
 
 
@@ -161,24 +179,66 @@ public class siparisAlactivity extends AppCompatActivity {
                     });
                     builder.setButton(AlertDialog.BUTTON_POSITIVE, "EVET", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            sipariseekle doregister = new sipariseekle();
-                            System.out.println(mn.getId());
-                            doregister.idal(mn.getId(), mn.getAd());
-                            doregister.execute("");
+                            new AsyncSiparisEkle(mn.getAd(), mn.getId(), mn.getFiyat(), glnmasano).execute();
 
                         }
                     });
                     builder.show();
                     builder.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.aktif));
                     builder.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.pasif));
-
-
                 }
             });
             return satirView;
         }
 
-        private class sipariseekle extends AsyncTask<String, String, String> {
+
+        public class AsyncSiparisEkle extends android.os.AsyncTask<Void, Void, Void> {
+
+            String ad;
+            int urunid;
+            String fiyat;
+            String masaNo;
+
+            public AsyncSiparisEkle(String ad, int urunid, String fiyat, String masaNo) {
+                this.ad = ad;
+                this.urunid = urunid;
+                this.fiyat = fiyat;
+                this.masaNo = masaNo;
+            }
+
+            @Override
+            protected Void doInBackground(Void... params) {
+
+                MenuService menuService = new MenuService();
+                Menu menu = menuService.GetMenuById(urunid);
+                if (menu != null) {
+                    YdkSiparislerService ydkSiparislerService = new YdkSiparislerService();
+                    YdkSiparisler ydkSiparis = new YdkSiparisler();
+                    ydkSiparis.setAd(ad);
+                    ydkSiparis.setUrunid(urunid);
+                    ydkSiparis.setFiyat(fiyat);
+                    ydkSiparis.setMasano(masaNo);
+                    ydkSiparislerService.PostYdkSiparisler(ydkSiparis);
+
+                    MasaService masaService = new MasaService();
+                    masaService.UpdateMasaDurumByMasaNo(glnmasano, "aktif");
+
+
+                    //bu burada olmaz. PostExecute de olur. DoingBackgroundda ekrandaki nesnelere erişemezsin. RefreshAdapter();
+                }
+                return null;
+
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                RefreshAdapter();
+                super.onPostExecute(aVoid);
+            }
+        }
+
+
+        /*private class sipariseekle extends AsyncTask<String, String, String> {
             int idgln;
             boolean isSuccess = false;
             String sedlene;
@@ -239,7 +299,7 @@ public class siparisAlactivity extends AppCompatActivity {
             }
 
 
-        }
+        }*/
     }
 }
 

@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -24,7 +25,7 @@ public interface RestInterface {
     @GET("Masalar")
     Call<List<Masa>> getMasa();
 
-    @GET("Masalar")
+    @GET("Masa")
     Call<Masa> getMasaByMasaNo(@Query("masano") String masano);
 
     @PUT("Masalar")
@@ -52,14 +53,13 @@ public interface RestInterface {
     Call<YdkSiparisler> deleteYdkSiparislerByMasaNo(@Query("masano") String masano);
 
     @DELETE("YdkSiparisler")
-    Call <List<YdkSiparisler>> deleteYdkSiparisler();
-
+    Call <YdkSiparisler> deleteYdkSiparisler();
 
     @GET("Menu")
     Call<List<Menu>> getMenu();
 
     @GET("Menu")
-    Call<Menu> getMenuByUrunId(@Query("urunid") int urunid);
+    Call<Menu> getMenuById(@Query("urunid") int urunid);
 
     @GET("SiparisListesi")
     Call<List<SiparisListesi>> getSiparisListesi();
@@ -67,6 +67,10 @@ public interface RestInterface {
     @POST("SiparisListesi")
     Call<SiparisListesi> postSiparisListesi(@Query("spid") Siparis spid, @Query("menuid") int menuid, @Query("urunad") String urunad, @Query("urunfiyat") String urunfiyat);
 
-    @PUT("Masa")
-    Call<Masa> updateMasaDurumToPasifByMasaNo(@Query("glnmasano") String glnmasano);
+    @PUT("Masalar")// parametre isimleri aynı olmak zorunda
+    Call<Void> updateMasaDurumByMasaNo(@Query("masano") String glnmasano, @Query("durum") String durum);
+
+
+    @POST("YdkSiparisler")
+    Call<Void> postYdkSiparisler(@Body YdkSiparisler ydkSiparis);
 }

@@ -23,9 +23,9 @@ public class MasaService {
     }
 
     public Masa UpdateMasalar(String masano) {
+        try{
         restInterface = APIClient.getClient().create(RestInterface.class);
         Call<Masa> call = restInterface.UpdateMasalar(masano);
-        try {
             Masa masa = call.execute().body();
             return masa;
         } catch (IOException e) {
@@ -35,9 +35,10 @@ public class MasaService {
     }
 
     public Masa GetMasaByMasaNo(String masano) {
+        try {
         restInterface = APIClient.getClient().create(RestInterface.class);
         Call<Masa> call = restInterface.getMasaByMasaNo(masano);
-        try {
+
             Masa masa = call.execute().body();
             return masa;
         } catch (IOException e) {
@@ -46,15 +47,13 @@ public class MasaService {
         }
     }
 
-    public Masa UpdateMasaDurumToPasifByMasaNo(String glnmasano) {
-        restInterface = APIClient.getClient().create(RestInterface.class);
-        Call<Masa> call = restInterface.updateMasaDurumToPasifByMasaNo(glnmasano);
+    public void UpdateMasaDurumByMasaNo(String glnmasano, String durum) {
         try {
-            Masa masa = call.execute().body();
-            return masa;
+            restInterface = APIClient.getClient().create(RestInterface.class);
+            Call<Void> call = restInterface.updateMasaDurumByMasaNo(glnmasano, durum);
+            call.execute().body();
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
         }
     }
 }

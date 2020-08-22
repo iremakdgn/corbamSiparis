@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -44,19 +45,6 @@ public class siparis_activity extends AppCompatActivity {
     ConnectionClass connectionClass;
     String glnmasano;
 
-    /*
-    sen asynctask metotlarını yazmıstın her bir metot için service lerdeki ben sana öyle olmıcak demiştim
-    sen o sıra parantezleri silerken hata yapmıssın
-    myadaptor sınıfın senın asynctask sınıfının içinde kalmıs ondan dolayı da myadaptor diye erişemezsin direk o ana sınıf adı.myadaptor diye erişebilirsin şimdi
-    bu cümle kalsın burada sen o linktekini oku anlıcan canım ben dün parantezlere çok baktım ama sen normal eksik veya
-    parantez var mı diye bakmıssın onlarda sorun yoktu zaten
-    sayok yok gittim myadapter ü yanlış parantez içimde mi kullandım diye baktım çok
-    görememişsin o zaman sımdı o attıgım lınkı okursan iyice oturur konu var mı sorun başka bi çalıştısana
-    çalıştırma ile çalışmayabilir o farklı bir şey
-    nasıl yanı o taraflarda hata varsa onu bilemem diyorum tamam bi bak
-adaptere set edersen gelir onlarda bak sen takılırsan bakarız yıne linki de okumayı unutma ben kactım canım nasıl set
-orada anlatıyor tamam bakarım kolay gelsin acanım
-    */
 
 
     @Override
@@ -117,10 +105,10 @@ orada anlatıyor tamam bakarım kolay gelsin acanım
                             //burada siparişi aktarma async calısacak
 //                            siparisiaktar doregisteraktar = new siparisiaktar();
                             new AsyncIslemiTamamla().execute();
-                            System.out.println("1");
 //                            doregisteraktar.execute("");
-                            Intent intentbtn11 = new Intent(siparis_activity.this, siparis_activity.class);
+                            Intent intentbtn11 = new Intent(siparis_activity.this, MasaSecimiActivity.class);
                             startActivity(intentbtn11);
+
 
                         }
                     });
@@ -168,7 +156,10 @@ orada anlatıyor tamam bakarım kolay gelsin acanım
 
         @Override
         protected void onPostExecute(Void avoid) {
+            siparsiler.clear();
+            toplamfiyat=0.0;
             for (YdkSiparisler m : ydkSiparislerList) {
+
                 masaSiparisAl sal = new masaSiparisAl();
                 sal.setId(m.getId());
                 sal.setAd(m.getAd());
@@ -193,7 +184,9 @@ orada anlatıyor tamam bakarım kolay gelsin acanım
             dakika.format(time);
             tarih.format(date);
             RefreshAdapter();
+            //toplamfiyat=0.0;
         }
+
     }
 
 
@@ -207,17 +200,17 @@ orada anlatıyor tamam bakarım kolay gelsin acanım
             saat.format(time);
             tarih.format(date);
             SiparisService s = new SiparisService();
+
             Siparis siparsid = s.PostSiparis(glnmasano, tarih, saat);
 
             YdkSiparislerService ydkSiparislerService = new YdkSiparislerService();
             List<YdkSiparisler> listYdkSiparis = ydkSiparislerService.GetYdkSiparisler(glnmasano);
 
-
             toplamfiyat = 0.0;
             siparsiler.clear();
             MenuService menuService = new MenuService();
             for (YdkSiparisler ydkSiparisler : listYdkSiparis) {
-                Menu menu = menuService.GetMenuByUrunId(ydkSiparisler.getUrunid());
+                Menu menu = menuService.GetMenuById(ydkSiparisler.getUrunid());
 
                 SiparisListesiService siparisListesiService = new SiparisListesiService();
                 siparisListesiService.PostSiparisListesi(siparsid, menu.getId(), menu.getAd(), menu.getFiyat());
@@ -226,45 +219,32 @@ orada anlatıyor tamam bakarım kolay gelsin acanım
             ydkSiparislerService.DeleteYdkSiparislerByMasaNo(glnmasano);
 
             MasaService masaService = new MasaService();
-            masaService.UpdateMasaDurumToPasifByMasaNo(glnmasano);
+            masaService.UpdateMasaDurumByMasaNo(glnmasano, "pasif");
 
             return null;
         }
     }
 
-    class DeleteYdkSiparisler extends android.os.AsyncTask<Void, Void, List<YdkSiparisler>> {
+    class DeleteYdkSiparisler extends android.os.AsyncTask<Void, Void, YdkSiparisler> {
         boolean isSuccess = false;
-        boolean aa = false;
+
 
         @Override
-        protected List<YdkSiparisler> doInBackground(Void... voids) {
+        protected YdkSiparisler doInBackground(Void... voids) {
             YdkSiparislerService m = new YdkSiparislerService();
-            List<YdkSiparisler> list = m.DeleteYdkSiparisler();
+            YdkSiparisler list = m.DeleteYdkSiparisler();
             return list;
         }
 
         @Override
-        protected void onPostExecute(List<YdkSiparisler> ydkSiparislers) {
-
-            for (YdkSiparisler m : ydkSiparislers) {
-                if (aa) {
-
+        protected void onPostExecute(YdkSiparisler ydkSiparislers) {
+                if (ydkSiparislers != null) {
                     isSuccess = true;
-                    m.getId();
+                    ydkSiparislers.getId();
 
                 }
-            }
-
         }
     }
-        /*nested class pardon subclass değil. O linktekini okuyorsun canım.
-        Nested Class kısaca class içinde class olması. Şimdi bu class başka bir classın içinde oldugundan sen o şekilde erişemezsin
-        Nedenini ben söylemiyorum o actıgım linkte okuyorsun anlastık mı niye girdin o zaman ne niye girdin diyorum pc me dün
-        kızım hatanı cozucem sımdı cozmıcem değil dedigim olay su
-        bunu bir daha yapmaman ıcın o linktekini oku diyorum çözümü de çok basit zaten
-        aynende öyle bekle izle dikkatlice
-        *
-        * */
 
     public class myAdaptor extends ArrayAdapter<masaSiparisAl> {
         ArrayList<masaSiparisAl> arr;
@@ -308,12 +288,12 @@ orada anlatıyor tamam bakarım kolay gelsin acanım
                     doregister.execute("");*/
 
                     new DeleteYdkSiparisler().execute();
-                    
+
                     toplamfiyat = toplamfiyat - Double.parseDouble(msiparsal.getFiyat());
                     textView1.setText(" TOPLAM : " + toplamfiyat.toString() + " TL");
                     arr.remove(position);
-                    myAdaptor adaptor = new myAdaptor(getContext(), 1, arr);
-                    siparisydk.setAdapter(adaptor);
+                    RefreshAdapter();
+
                 }
             });
             return satirView;

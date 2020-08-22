@@ -24,7 +24,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:id="@+id/cksbtn"
-            android:background="@drawable/cks">
+            android:background="@drawable/exit">
 
         </ImageButton>
 
@@ -81,7 +81,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="1" />
+                android:text="KAPALI" />
 
             <Button
                 android:id="@+id/btn2"
@@ -89,7 +89,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="2" />
+                android:text="KAPALI" />
 
             <Button
                 android:id="@+id/btn3"
@@ -97,7 +97,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="3" />
+                android:text="KAPALI" />
 
             <Button
                 android:id="@+id/btn4"
@@ -105,7 +105,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="4" />
+                android:text="KAPALI" />
         </TableRow>
 
         <TableRow
@@ -119,7 +119,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="5" />
+                android:text="KAPALI" />
 
             <Button
                 android:id="@+id/btn6"
@@ -127,7 +127,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="6" />
+                android:text="KAPALI" />
 
             <Button
                 android:id="@+id/btn7"
@@ -135,7 +135,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="7" />
+                android:text="KAPALI" />
 
             <Button
                 android:id="@+id/btn8"
@@ -143,7 +143,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="8" />
+                android:text="KAPALI" />
         </TableRow>
 
         <TableRow
@@ -157,7 +157,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="9" />
+                android:text="KAPALI" />
 
             <Button
                 android:id="@+id/btn10"
@@ -165,7 +165,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="10" />
+                android:text="KAPALI" />
 
             <Button
                 android:id="@+id/btn11"
@@ -173,7 +173,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="11" />
+                android:text="KAPALI" />
 
             <Button
                 android:id="@+id/btn12"
@@ -181,7 +181,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="12" />
+                android:text="KAPALI" />
 
         </TableRow>
 
@@ -196,7 +196,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="13" />
+                android:text="KAPALI" />
 
             <Button
                 android:id="@+id/btn14"
@@ -204,7 +204,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="14" />
+                android:text="KAPALI" />
 
             <Button
                 android:id="@+id/btn15"
@@ -212,7 +212,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="15" />
+                android:text="KAPALI" />
 
             <Button
                 android:id="@+id/btn16"
@@ -220,7 +220,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="16" />
+                android:text="KAPALI" />
         </TableRow>
 
         <TableRow
@@ -235,7 +235,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="17" />
+                android:text="KAPALI" />
 
             <Button
                 android:id="@+id/btn18"
@@ -243,7 +243,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="18" />
+                android:text="KAPALI" />
 
             <Button
                 android:id="@+id/btn19"
@@ -251,7 +251,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="19" />
+                android:text="KAPALI" />
 
             <Button
                 android:id="@+id/btn20"
@@ -259,7 +259,7 @@
                 android:layout_height="30pt"
                 android:layout_margin="3pt"
                 android:background="@color/colormasabutton"
-                android:text="20" />
+                android:text="KAPALI" />
         </TableRow>
     </TableLayout>
 

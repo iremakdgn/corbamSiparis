@@ -5,50 +5,51 @@ import com.google.gson.annotations.SerializedName;
 
 public class Menu {
 
-        @SerializedName("id")
-        @Expose
-        private Integer id;
-        @SerializedName("ad")
-        @Expose
-        private String ad;
-        @SerializedName("fiyat")
-        @Expose
-        private String fiyat;
-        @SerializedName("tur")
-        @Expose
-        private String tur;
 
-        public Integer getId() {
-            return id;
-        }
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("ad")
+    @Expose
+    private String ad;
+    @SerializedName("fiyat")
+    @Expose
+    private String fiyat;
+    @SerializedName("tur")
+    @Expose
+    private String tur;
 
-        public void setId(Integer id) {
-            this.id = id;
-        }
+    public Integer getId() {
+        return id;
+    }
 
-        public String getAd() {
-            return ad;
-        }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-        public void setAd(String ad) {
-            this.ad = ad;
-        }
+    public String getAd() {
+        return ad;
+    }
 
-        public String getFiyat() {
-            return fiyat;
-        }
+    public void setAd(String ad) {
+        this.ad = ad;
+    }
 
-        public void setFiyat(String fiyat) {
-            this.fiyat = fiyat;
-        }
+    public String getFiyat() {
+        return fiyat;
+    }
 
-        public String getTur() {
-            return tur;
-        }
+    public void setFiyat(String fiyat) {
+        this.fiyat = fiyat;
+    }
 
-        public void setTur(String tur) {
-            this.tur = tur;
-        }
+    public String getTur() {
+        return tur;
+    }
+
+    public void setTur(String tur) {
+        this.tur = tur;
+    }
 
     }
 

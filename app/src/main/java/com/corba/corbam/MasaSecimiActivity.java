@@ -73,8 +73,6 @@ public class MasaSecimiActivity extends AppCompatActivity {
         cksbtn = (ImageButton) findViewById(R.id.cksbtn);
         //renklendir doregister = new renklendir();
         //doregister.execute("");
-
-
     }
 
     @Override
@@ -114,10 +112,11 @@ public class MasaSecimiActivity extends AppCompatActivity {
             }
         });
 
+        //region ButtonClickler
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn1.getText().toString().equals("kapalı")) {
+                if (!btn1.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn1.getText().toString();
                     Intent intentbtn1 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn1);
@@ -128,7 +127,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn2.getText().toString().equals("kapalı")) {
+                if (!btn2.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn2.getText().toString();
                     Intent intentbtn2 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn2);
@@ -139,7 +138,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
             @Override
 
             public void onClick(View view) {
-                if (!btn3.getText().toString().equals("kapalı")) {
+                if (!btn3.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn3.getText().toString();
                     Intent intentbtn3 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn3);
@@ -149,7 +148,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn4.getText().toString().equals("kapalı")) {
+                if (!btn4.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn4.getText().toString();
                     Intent intentbtn4 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn4);
@@ -159,7 +158,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn5.getText().toString().equals("kapalı")) {
+                if (!btn5.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn5.getText().toString();
                     Intent intentbtn5 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn5);
@@ -169,7 +168,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
         btn6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn6.getText().toString().equals("kapalı")) {
+                if (!btn6.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn6.getText().toString();
                     Intent intentbtn6 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn6);
@@ -179,7 +178,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
         btn7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn7.getText().toString().equals("kapalı")) {
+                if (!btn7.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn7.getText().toString();
                     Intent intentbtn7 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn7);
@@ -189,7 +188,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
         btn8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn8.getText().toString().equals("kapalı")) {
+                if (!btn8.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn8.getText().toString();
                     Intent intentbtn8 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn8);
@@ -199,7 +198,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
         btn9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn9.getText().toString().equals("kapalı")) {
+                if (!btn9.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn9.getText().toString();
                     Intent intentbtn9 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn9);
@@ -210,7 +209,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
         btn10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn10.getText().toString().equals("kapalı")) {
+                if (!btn10.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn10.getText().toString();
                     Intent intentbtn10 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn10);
@@ -220,7 +219,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
         btn11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn11.getText().toString().equals("kapalı")) {
+                if (!btn11.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn11.getText().toString();
                     Intent intentbtn11 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn11);
@@ -230,7 +229,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
         btn12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn12.getText().toString().equals("kapalı")) {
+                if (!btn12.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn12.getText().toString();
                     Intent intentbtn12 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn12);
@@ -240,7 +239,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
         btn13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn13.getText().toString().equals("kapalı")) {
+                if (!btn13.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn13.getText().toString();
                     Intent intentbtn13 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn13);
@@ -250,7 +249,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
         btn14.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn14.getText().toString().equals("kapalı")) {
+                if (!btn14.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn14.getText().toString();
                     Intent intentbtn14 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn14);
@@ -260,7 +259,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
         btn15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn15.getText().toString().equals("kapalı")) {
+                if (!btn15.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn15.getText().toString();
                     Intent intentbtn15 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn15);
@@ -270,7 +269,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
         btn16.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn16.getText().toString().equals("kapalı")) {
+                if (!btn16.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn16.getText().toString();
                     Intent intentbtn16 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn16);
@@ -280,7 +279,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
         btn17.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn17.getText().toString().equals("kapalı")) {
+                if (!btn17.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn17.getText().toString();
                     Intent intentbtn17 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn17);
@@ -291,7 +290,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
         btn18.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn18.getText().toString().equals("kapalı")) {
+                if (!btn18.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn18.getText().toString();
                     Intent intentbtn18 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn18);
@@ -301,7 +300,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
         btn19.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn19.getText().toString().equals("kapalı")) {
+                if (!btn19.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn19.getText().toString();
                     Intent intentbtn19 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn19);
@@ -312,13 +311,15 @@ public class MasaSecimiActivity extends AppCompatActivity {
         btn20.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!btn20.getText().toString().equals("kapalı")) {
+                if (!btn20.getText().toString().equals("KAPALI")) {
                     gndrmasano = btn20.getText().toString();
                     Intent intentbtn20 = new Intent(MasaSecimiActivity.this, siparis_activity.class);
                     startActivity(intentbtn20);
                 }
             }
         });
+        //endregion
+
         String b1text = (btn1.getText().toString());
     }
 
@@ -333,197 +334,256 @@ public class MasaSecimiActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(List<Masa> masas) {
-
             for (Masa m : masas) {
-                if (m.getMasano().equals(btn1.getText().toString())) {
+                /* bu arada yarıda bıraktım sen devam edersin sımdı gelelım anlatmaya equals buna da devam edersin containslerde
+                btn1 in name yani id si yine btn1
+                2. masanın btn2
+                3. masanın btn3
+                4. masanın btn4
+                5. masanın btn5
+                6. masanın btn6
+                .
+                .
+                .
+                burdan yaz
+                hatanı gordun mu yazdım evet bende değiştim diye sanıyodum
+                diye devam eder
+                sana gelen apiden değer nedir masano olarak
+                1 2 3 4 5 6 7 .... 20 dir
+                masa nuumaraları böyledir
+                bende dedim ki
+                btn2 nin btn den sonraki kısmını al 2 dir
+                buda masano2 ye denk gelir
+                dolayısıyla 2. masa etkilenmiş olur
+                anladın mı sımdı
+                evet
+                sorun var mı yok bi bak istersen pc den kalkcam cunku ya sorun orda değil de sorun şurda dünden beri masayı kapat alerti gelmiyo gelsede kapanmıyo tamama bastığım halde
+                alerti kapatmak için alertadı.dissmiss eklersen yok ama pasif yapmıyo butonu
+equalsle olacak dmeiştim
+ama hala kapalı yazmıyo onlar vt deki kapalılar
+sence neden yazmıyo
+r if (getResources().getResourceEntryName(btn1.getId()).substring(3).equals(m.getMasano())) {
                     if (m.getDurum().equals("aktif")) {
                         btn1.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn1.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn1.setText("kapalı");
+                        btn1.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn1.getText().toString())) {
+                kod bu bilmiyorum
+                SetText yapmamıssın ki hiçbirinde nasıl
+                canım settext yapmazsan aktif pasif olmaz ben sana sordum gerek yok dedin
+                oyle bişey demedım yanlıs anlamıssındır
+                yoo ben bunu daha yaparken kapalıya bile yazmam dedin geek yok
+                neyse canım cozuldu suan eğer ekranda butona istiyorsan aktif pasif
+                setText yazman lazım hepsıne ama aktif yazmayacak ki zaten aktif renkle geliyo calısıyor o zaman suan ya hayıır en başytada  böyleydi boşuna bunu yaptıkbos
+                bosuna yaptıgımız yok ee hani kapalılar
+                yazıyor ya kapalı
+                ya anlamıyosun onlar vt de olan yaa
+                *
+                * */
+                if (getResources().getResourceEntryName(btn1.getId()).substring(3).equals(m.getMasano())) {
+                    btn1.setText("1");
                     if (m.getDurum().equals("aktif")) {
                         btn1.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn1.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn1.setText("kapalı");
+                        btn1.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn2.getText().toString())) {
+                if (getResources().getResourceEntryName(btn2.getId()).substring(3).equals(m.getMasano())) {
+                    btn2.setText("2");
                     if (m.getDurum().equals("aktif")) {
                         btn2.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn2.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn2.setText("kapalı");
+                        btn2.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn3.getText().toString())) {
+                if (getResources().getResourceEntryName(btn3.getId()).substring(3).equals(m.getMasano())) {
+                    btn3.setText("3");
                     if (m.getDurum().equals("aktif")) {
                         btn3.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn3.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn3.setText("kapalı");
+                        btn3.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn4.getText().toString())) {
+                if (getResources().getResourceEntryName(btn4.getId()).substring(3).equals(m.getMasano())) {
+                    btn4.setText("4");
                     if (m.getDurum().equals("aktif")) {
                         btn4.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn4.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn4.setText("kapalı");
+                        btn4.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn5.getText().toString())) {
+                if (getResources().getResourceEntryName(btn5.getId()).substring(3).equals(m.getMasano())) {
+                    btn5.setText("5");
                     if (m.getDurum().equals("aktif")) {
                         btn5.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn5.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn5.setText("kapalı");
+                        btn5.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn6.getText().toString())) {
+                if (getResources().getResourceEntryName(btn6.getId()).substring(3).equals(m.getMasano())) {
+                    btn6.setText("6");
                     if (m.getDurum().equals("aktif")) {
                         btn6.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn6.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn6.setText("kapalı");
+                        btn6.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn7.getText().toString())) {
+                if (getResources().getResourceEntryName(btn7.getId()).substring(3).equals(m.getMasano())) {
+                    btn7.setText("7");
                     if (m.getDurum().equals("aktif")) {
                         btn7.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn7.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn7.setText("kapalı");
+                        btn7.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn8.getText().toString())) {
+                if (getResources().getResourceEntryName(btn8.getId()).substring(3).equals(m.getMasano())) {
+                    btn8.setText("8");
                     if (m.getDurum().equals("aktif")) {
                         btn8.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn8.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn8.setText("kapalı");
+                        btn8.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn9.getText().toString())) {
+                if (getResources().getResourceEntryName(btn9.getId()).substring(3).equals(m.getMasano())) {
+                    btn9.setText("9");
                     if (m.getDurum().equals("aktif")) {
                         btn9.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn9.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn9.setText("kapalı");
+                        btn9.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn10.getText().toString())) {
+                if (getResources().getResourceEntryName(btn10.getId()).substring(3).equals(m.getMasano())) {
+                    btn10.setText("10");
                     if (m.getDurum().equals("aktif")) {
                         btn10.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn10.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn10.setText("kapalı");
+                        btn10.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn11.getText().toString())) {
+                if (getResources().getResourceEntryName(btn11.getId()).substring(3).equals(m.getMasano())) {
+                    btn11.setText("11");
                     if (m.getDurum().equals("aktif")) {
                         btn11.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn11.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn11.setText("kapalı");
+                        btn11.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn12.getText().toString())) {
+                if (getResources().getResourceEntryName(btn12.getId()).substring(3).equals(m.getMasano())) {
+                    btn12.setText("12");
                     if (m.getDurum().equals("aktif")) {
                         btn12.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn12.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn12.setText("kapalı");
+                        btn12.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn13.getText().toString())) {
+                if (getResources().getResourceEntryName(btn13.getId()).substring(3).equals(m.getMasano())) {
+                    btn13.setText("13");
                     if (m.getDurum().equals("aktif")) {
                         btn13.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn13.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn13.setText("kapalı");
+                        btn13.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn14.getText().toString())) {
+                if (getResources().getResourceEntryName(btn14.getId()).substring(3).equals(m.getMasano())) {
+                    btn14.setText("14");
                     if (m.getDurum().equals("aktif")) {
                         btn14.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn14.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn14.setText("kapalı");
+                        btn14.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn15.getText().toString())) {
+                if (getResources().getResourceEntryName(btn15.getId()).substring(3).equals(m.getMasano())) {
+                    btn15.setText("15");
                     if (m.getDurum().equals("aktif")) {
                         btn15.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn15.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn15.setText("kapalı");
+                        btn15.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn16.getText().toString())) {
+                if (getResources().getResourceEntryName(btn16.getId()).substring(3).equals(m.getMasano())) {
+                    btn16.setText("16");
                     if (m.getDurum().equals("aktif")) {
                         btn16.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn16.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn16.setText("kapalı");
+                        btn16.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn17.getText().toString())) {
+                if (getResources().getResourceEntryName(btn17.getId()).substring(3).equals(m.getMasano())) {
+                    btn17.setText("17");
                     if (m.getDurum().equals("aktif")) {
                         btn17.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn17.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn17.setText("kapalı");
+                        btn17.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn18.getText().toString())) {
+                if (getResources().getResourceEntryName(btn18.getId()).substring(3).equals(m.getMasano())) {
+                    btn18.setText("18");
                     if (m.getDurum().equals("aktif")) {
                         btn18.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn18.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn18.setText("kapalı");
+                        btn18.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn19.getText().toString())) {
+                if (getResources().getResourceEntryName(btn19.getId()).substring(3).equals(m.getMasano())) {
+                    btn19.setText("19");
                     if (m.getDurum().equals("aktif")) {
                         btn19.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn19.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn19.setText("kapalı");
+                        btn19.setText("KAPALI");
                     }
                 }
-                if (m.getMasano().equals(btn20.getText().toString())) {
+                if (getResources().getResourceEntryName(btn20.getId()).substring(3).equals(m.getMasano())) {
+                    btn20.setText("20");
                     if (m.getDurum().equals("aktif")) {
                         btn20.setBackgroundColor(getResources().getColor(R.color.aktif));
                     } else if (m.getDurum().equals("pasif")) {
                         btn20.setBackgroundColor(getResources().getColor(R.color.pasif));
                     } else {
-                        btn20.setText("kapalı");
+                        btn20.setText("KAPALI");
                     }
                 }
+
                 //line += m.toString() + "\n";
             }
             //Toast.makeText(MasaSecimiActivity.this, line, Toast.LENGTH_LONG).show();
@@ -571,7 +631,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                             btn1.setBackgroundColor(getResources().getColor(R.color.aktif));btn1.setText(masano);}
                         else if(durum.equals("pasif")){ btn1.setBackgroundColor(getResources().getColor(R.color.pasif));btn1.setText(masano);}
 
-                    } else { btn1.setText("kapalı"); }
+                    } else { btn1.setText("KAPALI"); }
                     ResultSet rs2 = st2.executeQuery("select * from masalar where masano='"+String.valueOf(btn2.getText()).toString()+"';");
                     if (rs2.next()) {
                         durum = rs2.getString(4);
@@ -579,7 +639,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn2.setBackgroundColor(getResources().getColor(R.color.aktif));btn2.setText(masano);}
                         else if(durum.equals("pasif")){ btn2.setBackgroundColor(getResources().getColor(R.color.pasif));btn2.setText(masano);}
 
-                    }else { btn2.setText("kapalı"); }
+                    }else { btn2.setText("KAPALI"); }
                     ResultSet rs3 = st3.executeQuery("select * from masalar where masano='"+String.valueOf(btn3.getText()).toString()+"';");
                     if (rs3.next()) {
                         durum = rs3.getString(4);
@@ -587,7 +647,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn3.setBackgroundColor(getResources().getColor(R.color.aktif));btn3.setText(masano);}
                         else if(durum.equals("pasif")){ btn3.setBackgroundColor(getResources().getColor(R.color.pasif));btn3.setText(masano);}
 
-                    }else { btn3.setText("kapalı"); }
+                    }else { btn3.setText("KAPALI"); }
                     ResultSet rs4 = st4.executeQuery("select * from masalar where masano='"+String.valueOf(btn4.getText()).toString()+"';");
                     if (rs4.next()) {
                         durum = rs4.getString(4);
@@ -595,7 +655,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn4.setBackgroundColor(getResources().getColor(R.color.aktif));btn4.setText(masano);}
                         else if(durum.equals("pasif")){ btn4.setBackgroundColor(getResources().getColor(R.color.pasif));btn4.setText(masano);}
 
-                    }else { btn4.setText("kapalı"); }
+                    }else { btn4.setText("KAPALI"); }
                     ResultSet rs5 = st5.executeQuery("select * from masalar where masano='"+String.valueOf(btn5.getText()).toString()+"';");
                     if (rs5.next()) {
                         durum = rs5.getString(4);
@@ -603,7 +663,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn5.setBackgroundColor(getResources().getColor(R.color.aktif));btn5.setText(masano);}
                         else if(durum.equals("pasif")){ btn5.setBackgroundColor(getResources().getColor(R.color.pasif));btn5.setText(masano);}
 
-                    }else { btn5.setText("kapalı"); }
+                    }else { btn5.setText("KAPALI"); }
                     ResultSet rs6 = st6.executeQuery("select * from masalar where masano='"+String.valueOf(btn6.getText()).toString()+"';");
                     if (rs6.next()) {
                         durum = rs6.getString(4);
@@ -611,7 +671,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn6.setBackgroundColor(getResources().getColor(R.color.aktif));btn6.setText(masano);}
                         else if(durum.equals("pasif")){ btn6.setBackgroundColor(getResources().getColor(R.color.pasif));btn6.setText(masano);}
 
-                    } else { btn6.setText("kapalı"); }
+                    } else { btn6.setText("KAPALI"); }
                     ResultSet rs7 = st7.executeQuery("select * from masalar where masano='"+String.valueOf(btn7.getText()).toString()+"';");
                     if (rs7.next()) {
                         durum = rs7.getString(4);
@@ -619,7 +679,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn7.setBackgroundColor(getResources().getColor(R.color.aktif));btn7.setText(masano);}
                         else if(durum.equals("pasif")){ btn7.setBackgroundColor(getResources().getColor(R.color.pasif));btn7.setText(masano);}
 
-                    }else { btn7.setText("kapalı"); }
+                    }else { btn7.setText("KAPALI"); }
                     ResultSet rs8 = st8.executeQuery("select * from masalar where masano='"+String.valueOf(btn8.getText()).toString()+"';");
                     if (rs8.next()) {
                         durum = rs8.getString(4);
@@ -627,7 +687,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn8.setBackgroundColor(getResources().getColor(R.color.aktif));btn8.setText(masano);}
                         else if(durum.equals("pasif")){ btn8.setBackgroundColor(getResources().getColor(R.color.pasif));btn8.setText(masano);}
 
-                    } else { btn8.setText("kapalı"); }
+                    } else { btn8.setText("KAPALI"); }
                     ResultSet rs9 = st9.executeQuery("select * from masalar where masano='"+String.valueOf(btn9.getText()).toString()+"';");
                     if (rs9.next()) {
                         durum = rs9.getString(4);
@@ -635,7 +695,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn9.setBackgroundColor(getResources().getColor(R.color.aktif));btn9.setText(masano);}
                         else if(durum.equals("pasif")){ btn9.setBackgroundColor(getResources().getColor(R.color.pasif));btn9.setText(masano);}
 
-                    }else { btn9.setText("kapalı"); }
+                    }else { btn9.setText("KAPALI"); }
                     ResultSet rs10 = st10.executeQuery("select * from masalar where masano='"+String.valueOf(btn10.getText()).toString()+"';");
                     if (rs10.next()) {
                         durum = rs10.getString(4);
@@ -643,7 +703,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn10.setBackgroundColor(getResources().getColor(R.color.aktif));btn10.setText(masano);}
                         else if(durum.equals("pasif")){ btn10.setBackgroundColor(getResources().getColor(R.color.pasif));btn10.setText(masano);}
 
-                    }   else { btn10.setText("kapalı"); }
+                    }   else { btn10.setText("KAPALI"); }
                     ResultSet rs11 = st11.executeQuery("select * from masalar where masano='"+String.valueOf(btn11.getText()).toString()+"';");
                     if (rs11.next()) {
                         durum = rs11.getString(4);
@@ -651,7 +711,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn11.setBackgroundColor(getResources().getColor(R.color.aktif));btn11.setText(masano);}
                         else if(durum.equals("pasif")){ btn11.setBackgroundColor(getResources().getColor(R.color.pasif));btn11.setText(masano);}
 
-                    }else { btn11.setText("kapalı"); }
+                    }else { btn11.setText("KAPALI"); }
                     ResultSet rs12 = st12.executeQuery("select * from masalar where masano='"+String.valueOf(btn12.getText()).toString()+"';");
                     if (rs12.next()) {
                         durum = rs12.getString(4);
@@ -659,7 +719,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn12.setBackgroundColor(getResources().getColor(R.color.aktif));btn12.setText(masano);}
                         else if(durum.equals("pasif")){ btn12.setBackgroundColor(getResources().getColor(R.color.pasif));btn12.setText(masano);}
 
-                    }else { btn12.setText("kapalı"); }
+                    }else { btn12.setText("KAPALI"); }
                     ResultSet rs13 = st13.executeQuery("select * from masalar where masano='"+String.valueOf(btn13.getText()).toString()+"';");
                     if (rs13.next()) {
                         durum = rs13.getString(4);
@@ -667,7 +727,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn13.setBackgroundColor(getResources().getColor(R.color.aktif));btn13.setText(masano);}
                         else if(durum.equals("pasif")){ btn13.setBackgroundColor(getResources().getColor(R.color.pasif));btn13.setText(masano);}
 
-                    } else { btn13.setText("kapalı"); }
+                    } else { btn13.setText("KAPALI"); }
                     ResultSet rs14 = st14.executeQuery("select * from masalar where masano='"+String.valueOf(btn14.getText()).toString()+"';");
                     if (rs14.next()) {
                         durum = rs14.getString(4);
@@ -675,7 +735,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn14.setBackgroundColor(getResources().getColor(R.color.aktif));btn14.setText(masano);}
                         else if(durum.equals("pasif")){ btn14.setBackgroundColor(getResources().getColor(R.color.pasif));btn14.setText(masano);}
 
-                    } else { btn14.setText("kapalı"); }
+                    } else { btn14.setText("KAPALI"); }
                     ResultSet rs15 = st15.executeQuery("select * from masalar where masano='"+String.valueOf(btn15.getText()).toString()+"';");
                     if (rs15.next()) {
                         durum = rs15.getString(4);
@@ -683,7 +743,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn15.setBackgroundColor(getResources().getColor(R.color.aktif));btn15.setText(masano);}
                         else if(durum.equals("pasif")){ btn15.setBackgroundColor(getResources().getColor(R.color.pasif));btn15.setText(masano);}
 
-                    } else { btn15.setText("kapalı"); }
+                    } else { btn15.setText("KAPALI"); }
                     ResultSet rs16 = st16.executeQuery("select * from masalar where masano='"+String.valueOf(btn16.getText()).toString()+"';");
                     if (rs16.next()) {
                         durum = rs16.getString(4);
@@ -691,7 +751,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn16.setBackgroundColor(getResources().getColor(R.color.aktif));btn16.setText(masano);}
                         else if(durum.equals("pasif")){ btn16.setBackgroundColor(getResources().getColor(R.color.pasif));btn16.setText(masano);}
 
-                    } else { btn16.setText("kapalı"); }
+                    } else { btn16.setText("KAPALI"); }
                     ResultSet rs17 = st17.executeQuery("select * from masalar where masano='"+String.valueOf(btn17.getText()).toString()+"';");
                     if (rs17.next()) {
                         durum = rs17.getString(4);
@@ -699,7 +759,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn17.setBackgroundColor(getResources().getColor(R.color.aktif));btn17.setText(masano);}
                         else if(durum.equals("pasif")){ btn17.setBackgroundColor(getResources().getColor(R.color.pasif));btn17.setText(masano);}
 
-                    } else { btn17.setText("kapalı"); }
+                    } else { btn17.setText("KAPALI"); }
                     ResultSet rs18 = st18.executeQuery("select * from masalar where masano='"+String.valueOf(btn18.getText()).toString()+"';");
                     if (rs18.next()) {
                         durum = rs18.getString(4);
@@ -707,7 +767,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn18.setBackgroundColor(getResources().getColor(R.color.aktif));btn18.setText(masano);}
                         else if(durum.equals("pasif")){ btn18.setBackgroundColor(getResources().getColor(R.color.pasif));btn18.setText(masano);}
 
-                    } else { btn18.setText("kapalı"); }
+                    } else { btn18.setText("KAPALI"); }
                     ResultSet rs19 = st19.executeQuery("select * from masalar where masano='"+String.valueOf(btn19.getText()).toString()+"';");
                     if (rs19.next()) {
                         durum = rs19.getString(4);
@@ -715,7 +775,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn19.setBackgroundColor(getResources().getColor(R.color.aktif));btn19.setText(masano);}
                         else if(durum.equals("pasif")){ btn19.setBackgroundColor(getResources().getColor(R.color.pasif));btn19.setText(masano);}
 
-                    } else { btn19.setText("kapalı"); }
+                    } else { btn19.setText("KAPALI"); }
                     ResultSet rs20 = st20.executeQuery("select * from masalar where masano='"+String.valueOf(btn20.getText()).toString()+"';");
                     if (rs20.next()) {
                         durum = rs20.getString(4);
@@ -723,7 +783,7 @@ public class MasaSecimiActivity extends AppCompatActivity {
                         if(durum.equals("aktif")){ btn20.setBackgroundColor(getResources().getColor(R.color.aktif));btn20.setText(masano);}
                         else if(durum.equals("pasif")){ btn20.setBackgroundColor(getResources().getColor(R.color.pasif));btn20.setText(masano);}
 
-                    } else { btn20.setText("kapalı"); }
+                    } else { btn20.setText("KAPALI"); }
 
                 }
             } catch (Exception ex) {

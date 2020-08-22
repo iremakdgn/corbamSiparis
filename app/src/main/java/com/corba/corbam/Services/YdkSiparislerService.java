@@ -1,7 +1,5 @@
 package com.corba.corbam.Services;
 
-import com.corba.corbam.Entities.Kullanici;
-import com.corba.corbam.Entities.Siparis;
 import com.corba.corbam.Entities.YdkSiparisler;
 
 import java.io.IOException;
@@ -13,8 +11,8 @@ public class YdkSiparislerService {
     static RestInterface restInterface;
 
     public List<YdkSiparisler> GetYdkSiparisler(String masano) {
-        restInterface = APIClient.getClient().create(RestInterface.class);
         try {
+            restInterface = APIClient.getClient().create(RestInterface.class);
             Call<List<YdkSiparisler>> call = restInterface.getYdkSiparisler(masano);
             List<YdkSiparisler> ydkSiparisler = call.execute().body();
             return ydkSiparisler;
@@ -25,9 +23,21 @@ public class YdkSiparislerService {
     }
 
     public YdkSiparisler DeleteYdkSiparislerByMasaNo(String masano) {
-        restInterface = APIClient.getClient().create(RestInterface.class);
-        Call<YdkSiparisler> call = restInterface.deleteYdkSiparislerByMasaNo(masano);
         try {
+            restInterface = APIClient.getClient().create(RestInterface.class);
+            Call<YdkSiparisler> call = restInterface.deleteYdkSiparislerByMasaNo(masano);
+            YdkSiparisler ydkSiparisler = call.execute().body();//delette geriye alıyorsun hata
+            return ydkSiparisler;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public YdkSiparisler DeleteYdkSiparisler() {
+        try {
+            restInterface = APIClient.getClient().create(RestInterface.class);
+            Call<YdkSiparisler> call = restInterface.deleteYdkSiparisler();
             YdkSiparisler ydkSiparisler = call.execute().body();
             return ydkSiparisler;
         } catch (IOException e) {
@@ -36,15 +46,13 @@ public class YdkSiparislerService {
         }
     }
 
-    public List<YdkSiparisler> DeleteYdkSiparisler() {
-        restInterface = APIClient.getClient().create(RestInterface.class);
-        Call<List<YdkSiparisler>> call = restInterface.deleteYdkSiparisler();
+    public void PostYdkSiparisler(YdkSiparisler ydkSiparis) {
         try {
-            List<YdkSiparisler> ydkSiparisler = call.execute().body();
-            return ydkSiparisler;
+            restInterface = APIClient.getClient().create(RestInterface.class);
+            Call<Void> call = restInterface.postYdkSiparisler(ydkSiparis);
+            call.execute();//geriye değer alınmayacaksa body yazman patlatır dene patlarsa da yine kolon isimleri tiplerindendir ben cıktım acnım
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
         }
     }
 }

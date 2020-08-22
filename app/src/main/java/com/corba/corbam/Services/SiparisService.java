@@ -15,9 +15,9 @@ public class SiparisService {
     static RestInterface restInterface;
 
     public List<Siparis> GetSiparis() {
+        try {
         restInterface = APIClient.getClient().create(RestInterface.class);
         Call<List<Siparis>> call = restInterface.getSiparis();
-        try {
             List<Siparis> siparisler = call.execute().body();
             return siparisler;
         } catch (IOException e) {
@@ -26,9 +26,9 @@ public class SiparisService {
         }
     }
     public Siparis GetSiparisByMasano(int masano, Date tarih, Time saat) {
+        try {
         restInterface = APIClient.getClient().create(RestInterface.class);
         Call<Siparis> call = restInterface.getSiparisByMasano(masano,tarih,saat);
-        try {
             Siparis siparisler = call.execute().body();
             return siparisler;
         } catch (IOException e) {
@@ -37,10 +37,10 @@ public class SiparisService {
         }
     }
     public Siparis PostSiparis(String masano, DateFormat tarih, DateFormat saat) {
+        try {
         restInterface = APIClient.getClient().create(RestInterface.class);
         Call<Siparis> call = restInterface.postSiparis(masano, tarih, saat);
-        try {
-             Siparis siparisler = call.execute().body();
+        Siparis siparisler = call.execute().body();
             return siparisler;
         } catch (IOException e) {
             e.printStackTrace();

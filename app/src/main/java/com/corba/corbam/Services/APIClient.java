@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIClient {
     private static Retrofit retrofit = null;
-    private static String Base_Url = "http://192.168.1.104/siparisapi/api/";
+    private static String Base_Url = "http://192.168.1.106/siparisapi/api/";
 
     public static Retrofit getClient() {
         if (retrofit == null) {
