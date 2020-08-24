@@ -21,7 +21,7 @@ public class SiparisListesiService {
             return null;
         }
     }
-    public SiparisListesi PostSiparisListesi(String spid, int menuid, String urunad, String urunfiyat) {
+    public SiparisListesi PostSiparisListesi(Siparis spid, int menuid, String urunad, String urunfiyat) {
         try {
         restInterface = APIClient.getClient().create(RestInterface.class);
         Call<SiparisListesi> call = restInterface.postSiparisListesi(spid, menuid, urunad, urunfiyat);

@@ -65,7 +65,7 @@ public interface RestInterface {
     Call<List<SiparisListesi>> getSiparisListesi();
 
     @POST("SiparisListesi")
-    Call<SiparisListesi> postSiparisListesi(@Query("spid") String spid, @Query("menuid") int menuid, @Query("urunad") String urunad, @Query("urunfiyat") String urunfiyat);
+    Call<SiparisListesi> postSiparisListesi(@Query("spid") Siparis spid, @Query("menuid") int menuid, @Query("urunad") String urunad, @Query("urunfiyat") String urunfiyat);
 
     @PUT("Masalar")
     Call<Void> updateMasaDurumByMasaNo(@Query("masano") String glnmasano, @Query("durum") String durum);
