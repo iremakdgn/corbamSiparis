@@ -170,8 +170,3 @@ public class siparisAlactivity extends AppCompatActivity {
         }
     }
 }
-
-
-
-
-

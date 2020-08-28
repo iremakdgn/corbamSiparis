@@ -515,6 +515,3 @@ public class MasaSecimiActivity extends AppCompatActivity {
         }
     }
 }
-
-
-

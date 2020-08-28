@@ -22,10 +22,10 @@ import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 public interface RestInterface {
-    @GET("Masalar")
+    @GET("Masalar/GetMasalar")
     Call<List<Masa>> getMasa();
 
-    @GET("Masa")
+    @GET("Masalar/GetMasalarByMasaNo")
     Call<Masa> getMasaByMasaNo(@Query("masano") String masano);
 
     @PUT("Masalar")
@@ -37,13 +37,13 @@ public interface RestInterface {
     @GET("Kullanici/Login")
     Call<Kullanici> login(@Query("kullaniciadi") String kullaniciadi, @Query("sifre") String sifre, @Query("rol") String rol);
 
-    @GET("Siparisler")
+    @GET("Siparisler/GetSiparisler")
     Call<List<Siparis>> getSiparis();
 
     @POST("Siparisler")
     Call<Siparis> postSiparis(@Query("masano") String masano, @Query("tarih") DateFormat tarih, @Query("saat") DateFormat saat);
 
-    @GET("Siparisler")
+    @GET("Siparisler/getSiparisByMasano")
     Call<Siparis> getSiparisByMasano(@Query("masano") int masano, @Query("tarih") Date tarih, @Query("saat") Time saat);
 
     @GET("YdkSiparisler")
@@ -55,13 +55,13 @@ public interface RestInterface {
     @DELETE("YdkSiparisler")
     Call <YdkSiparisler> deleteYdkSiparisler(@Query("id") int id);
 
-    @GET("Menu")
+    @GET("Menu/GetMenu")
     Call<List<Menu>> getMenu();
 
-    @GET("Menu")
+    @GET("Menu/GetMenuById")
     Call<Menu> getMenuById(@Query("urunid") int urunid);
 
-    @GET("SiparisListesi")
+    @GET("SiparisListesi/GetSiparisListesi")
     Call<List<SiparisListesi>> getSiparisListesi();
 
     @POST("SiparisListesi")
