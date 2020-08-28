@@ -197,6 +197,12 @@ public class siparis_activity extends AppCompatActivity {
 
             return null;
         }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            RefreshAdapter();
+        }
     }
 
     class DeleteYdkSiparisler extends android.os.AsyncTask<Void, Void, YdkSiparisler> {
