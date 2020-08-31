@@ -20,6 +20,7 @@
             android:layout_below="@+id/editText2_urun_miktari"
             android:layout_weight="1"
             android:paddingLeft="8dp"
+            android:textStyle="bold"
             android:text="TextView"
             android:textColor="@android:color/black"
             android:textSize="24sp"

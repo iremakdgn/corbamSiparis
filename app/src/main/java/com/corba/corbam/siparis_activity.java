@@ -93,6 +93,7 @@ public class siparis_activity extends AppCompatActivity {
                             new AsyncIslemiTamamla().execute();
                             Intent intentbtn = new Intent(siparis_activity.this, MasaSecimiActivity.class);
                             startActivity(intentbtn);
+
                         }
                     });
                     builder.show();
@@ -182,7 +183,7 @@ public class siparis_activity extends AppCompatActivity {
             //tarih.format(date);
 
             // Servisler her zaman forların dısında olmalıdır. İstisnalar Hariç
-           
+
             SiparisService s = new SiparisService();
             MenuService menuService = new MenuService();
             SiparisListesiService siparisListesiService = new SiparisListesiService();
