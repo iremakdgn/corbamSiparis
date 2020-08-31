@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.corba.corbam.Entities.Masa;
 import com.corba.corbam.Entities.Menu;
 import com.corba.corbam.Entities.Siparis;
+import com.corba.corbam.Entities.SiparisListesi;
 import com.corba.corbam.Entities.YdkSiparisler;
 import com.corba.corbam.Services.MasaService;
 import com.corba.corbam.Services.MenuService;
@@ -105,8 +106,8 @@ public class siparis_activity extends AppCompatActivity {
             }
         });
     }
-    private void RefreshAdapter()
-    {
+
+    private void RefreshAdapter() {
         myAdaptor adaptor = new myAdaptor(this, 1, siparsiler);
         siparisydk.setAdapter(adaptor);
     }
@@ -117,8 +118,7 @@ public class siparis_activity extends AppCompatActivity {
         List<YdkSiparisler> ydkSiparislerList;
         Masa masa;
 
-        public
-        GetYdkSiparisler(String masaNo) {
+        public GetYdkSiparisler(String masaNo) {
             this.masaNo = masaNo;
         }
 
@@ -135,7 +135,7 @@ public class siparis_activity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void avoid) {
             siparsiler.clear();
-            toplamfiyat=0.0;
+            toplamfiyat = 0.0;
             for (YdkSiparisler m : ydkSiparislerList) {
 
                 masaSiparisAl sal = new masaSiparisAl();
@@ -164,34 +164,51 @@ public class siparis_activity extends AppCompatActivity {
             RefreshAdapter();
         }
     }
+
     public class AsyncIslemiTamamla extends android.os.AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... params) {
-            Date date = new Date();
-            Date time = new Date();
-            SimpleDateFormat saat = new SimpleDateFormat("HH:mm:ss");
-            SimpleDateFormat tarih = new SimpleDateFormat("yyyy-MM-dd");
-            saat.format(time);
-            tarih.format(date);
-            SiparisService s = new SiparisService();
-
-            Siparis siparsid = s.PostSiparis(glnmasano, tarih, saat);
-
-            YdkSiparislerService ydkSiparislerService = new YdkSiparislerService();
-            List<YdkSiparisler> listYdkSiparis = ydkSiparislerService.GetYdkSiparisler(glnmasano);
-
             toplamfiyat = 0.0;
             siparsiler.clear();
+
+            YdkSiparislerService ydkSiparislerService = new YdkSiparislerService();
+            //Burada ydkSiparisler çekildi.
+            List<YdkSiparisler> listYdkSiparis = ydkSiparislerService.GetYdkSiparisler(glnmasano);
+            SimpleDateFormat saat = new SimpleDateFormat("HH:mm:ss");
+            SimpleDateFormat tarih = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = new Date();
+            Date time = new Date();
+            //saat.format(time);
+            //tarih.format(date);
+
+            // Servisler her zaman forların dısında olmalıdır. İstisnalar Hariç
+           
+            SiparisService s = new SiparisService();
             MenuService menuService = new MenuService();
+            SiparisListesiService siparisListesiService = new SiparisListesiService();
             for (YdkSiparisler ydkSiparisler : listYdkSiparis) {
-                Menu menu = menuService.GetMenuById(ydkSiparisler.getUrunid());
 
-                SiparisListesiService siparisListesiService = new SiparisListesiService();
-                siparisListesiService.PostSiparisListesi(siparsid, menu.getId(), menu.getAd(), menu.getFiyat());
+                Menu menu = menuService.GetMenuById(ydkSiparisler.getUrunid()); //Git o ürüne ait bilgileri çek.
+                Siparis yeniSiparis = new Siparis(); //Yeni bir sipariş NESNESİ oluşturduk. Service değildir bu!
+                yeniSiparis.setMasano(Integer.parseInt(glnmasano));
+                yeniSiparis.setTarih(tarih.format(date));
+                yeniSiparis.setSaat(saat.format(time));
+                //Oluşturduğumuz siparişi apiye gönderdik. Api de bize eklenen kaydın İD sini geriye dönderdi.
+                int siparisid = s.PostSiparisler(yeniSiparis);
+
+                //Daha sonra sipariş listesi tablosuna eklemek için sınıf oluşturduk. Bilgileri set ettik.
+                SiparisListesi siparisListesi = new SiparisListesi();
+                siparisListesi.setMenuid(menu.getId());
+                siparisListesi.setUrunad(menu.getAd());
+                siparisListesi.setSpid(siparisid);
+                siparisListesi.setUrunfiyat(menu.getFiyat());
+                //Post ettik bilgileri.
+                siparisListesiService.PostSiparisListesi(siparisListesi);
             }
-
+//Masano daki siparişler silindi
             ydkSiparislerService.DeleteYdkSiparislerByMasaNo(glnmasano);
 
+            //Masa temize çıktığı için durumu pasif e çevrildi!
             MasaService masaService = new MasaService();
             masaService.UpdateMasaDurumByMasaNo(glnmasano, "pasif");
 
@@ -210,7 +227,7 @@ public class siparis_activity extends AppCompatActivity {
         int id;
 
         public DeleteYdkSiparisler(int id) {
-            this.id=id;
+            this.id = id;
         }
 
 
@@ -223,11 +240,11 @@ public class siparis_activity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(YdkSiparisler ydkSiparislers) {
-                if (ydkSiparislers != null) {
-                    isSuccess = true;
-                    ydkSiparislers.getId();
+            if (ydkSiparislers != null) {
+                isSuccess = true;
+                ydkSiparislers.getId();
 
-                }
+            }
         }
     }
 

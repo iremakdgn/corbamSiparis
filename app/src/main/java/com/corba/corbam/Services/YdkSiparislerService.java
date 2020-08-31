@@ -22,11 +22,11 @@ public class YdkSiparislerService {
         }
     }
 
-    public YdkSiparisler DeleteYdkSiparislerByMasaNo(String masano) {
+    public List<YdkSiparisler> DeleteYdkSiparislerByMasaNo(String masano) {
         try {
             restInterface = APIClient.getClient().create(RestInterface.class);
-            Call<YdkSiparisler> call = restInterface.deleteYdkSiparislerByMasaNo(masano);
-            YdkSiparisler ydkSiparisler = call.execute().body();
+            Call<List<YdkSiparisler>> call = restInterface.deleteYdkSiparislerByMasaNo(masano);
+            List<YdkSiparisler> ydkSiparisler = call.execute().body();
             return ydkSiparisler;
         } catch (IOException e) {
             e.printStackTrace();

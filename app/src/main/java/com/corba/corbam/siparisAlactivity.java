@@ -164,7 +164,7 @@ public class siparisAlactivity extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(Void aVoid) {
-                RefreshAdapter();
+                //RefreshAdapter();
                 super.onPostExecute(aVoid);
             }
         }

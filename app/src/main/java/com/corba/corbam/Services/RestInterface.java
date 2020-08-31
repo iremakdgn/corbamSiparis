@@ -40,20 +40,17 @@ public interface RestInterface {
     @GET("Siparisler/GetSiparisler")
     Call<List<Siparis>> getSiparis();
 
-    @POST("Siparisler")
-    Call<Siparis> postSiparis(@Query("masano") String masano, @Query("tarih") DateFormat tarih, @Query("saat") DateFormat saat);
-
-    @GET("Siparisler/getSiparisByMasano")
+    @GET("Siparisler/GetSiparislerByMasano")
     Call<Siparis> getSiparisByMasano(@Query("masano") int masano, @Query("tarih") Date tarih, @Query("saat") Time saat);
 
     @GET("YdkSiparisler")
     Call<List<YdkSiparisler>> getYdkSiparisler(@Query("masano") String masano);
 
     @DELETE("YdkSiparisler")
-    Call<YdkSiparisler> deleteYdkSiparislerByMasaNo(@Query("masano") String masano);
+    Call<List<YdkSiparisler>> deleteYdkSiparislerByMasaNo(@Query("masano") String masano);
 
     @DELETE("YdkSiparisler")
-    Call <YdkSiparisler> deleteYdkSiparisler(@Query("id") int id);
+    Call<YdkSiparisler> deleteYdkSiparisler(@Query("id") int id);
 
     @GET("Menu/GetMenu")
     Call<List<Menu>> getMenu();
@@ -65,11 +62,14 @@ public interface RestInterface {
     Call<List<SiparisListesi>> getSiparisListesi();
 
     @POST("SiparisListesi")
-    Call<SiparisListesi> postSiparisListesi(@Query("spid") Siparis spid, @Query("menuid") int menuid, @Query("urunad") String urunad, @Query("urunfiyat") String urunfiyat);
+    Call<Void> postSiparisListesi(@Body SiparisListesi siparisListesi);
 
     @PUT("Masalar")
     Call<Void> updateMasaDurumByMasaNo(@Query("masano") String glnmasano, @Query("durum") String durum);
 
     @POST("YdkSiparisler")
     Call<Void> postYdkSiparisler(@Body YdkSiparisler ydkSiparis);
+
+    @POST("Siparisler")
+    Call<Integer> postSiparisler(@Body Siparis siparis);
 }

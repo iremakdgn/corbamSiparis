@@ -2,6 +2,7 @@ package com.corba.corbam.Services;
 
 import com.corba.corbam.Entities.Siparis;
 import com.corba.corbam.Entities.SiparisListesi;
+import com.corba.corbam.Entities.YdkSiparisler;
 
 import java.io.IOException;
 import java.util.List;
@@ -21,15 +22,14 @@ public class SiparisListesiService {
             return null;
         }
     }
-    public SiparisListesi PostSiparisListesi(Siparis spid, int menuid, String urunad, String urunfiyat) {
+
+    public void PostSiparisListesi(SiparisListesi siparisListesi) {
         try {
-        restInterface = APIClient.getClient().create(RestInterface.class);
-        Call<SiparisListesi> call = restInterface.postSiparisListesi(spid, menuid, urunad, urunfiyat);
-            SiparisListesi siparisListesi = call.execute().body();
-            return siparisListesi;
+            restInterface = APIClient.getClient().create(RestInterface.class);
+            Call<Void> call = restInterface.postSiparisListesi(siparisListesi);
+            call.execute();
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
         }
     }
 }
