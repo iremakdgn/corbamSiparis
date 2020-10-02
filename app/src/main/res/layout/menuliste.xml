@@ -24,7 +24,7 @@
             android:id="@+id/lblmsad"
             android:textStyle="bold"
             android:gravity="center"
-            android:layout_width="197dp"
+            android:layout_width="190dp"
             android:layout_height="80px"
             android:text="DENE"
             android:textSize="40px"></TextView>
@@ -33,20 +33,34 @@
             android:id="@+id/lblfiyat"
             android:textStyle="bold"
             android:gravity="center"
-            android:layout_width="108dp"
+            android:layout_width="100dp"
             android:layout_height="80px"
             android:text="Dene"
             android:textSize="40px"></TextView>
 
-        <ImageButton
-            android:id="@+id/btnekle"
-            android:layout_width="wrap_content"
+
+        <EditText
+            android:id="@+id/lbladet"
+            android:layout_width="45dp"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/colormasabutton"
+            android:ems="10"
+            android:enabled="true"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:gravity="center_horizontal" />
+
+        <Button
+            android:id="@+id/btnekle"
+            android:layout_width="120px"
+            android:layout_height="60px"
             android:layout_gravity="center"
-            android:background="@drawable/add"
-            android:text="sil"
+            android:background="#eeb4b4"
+            android:text="Ekle"
             android:textColor="#fff"
             android:textSize="40px" />
+
 
     </LinearLayout>
 

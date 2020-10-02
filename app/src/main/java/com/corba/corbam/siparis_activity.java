@@ -37,6 +37,7 @@ public class siparis_activity extends AppCompatActivity {
     ListView siparisydk;
     ArrayList<masaSiparisAl> siparsiler = new ArrayList<masaSiparisAl>();
     public static Double toplamfiyat = 0.0;
+    public static Double fiyat = 0.0;
     public static String masakapasite;
     public static String secilimasadurumu;
     String glnmasano;
@@ -137,14 +138,17 @@ public class siparis_activity extends AppCompatActivity {
         protected void onPostExecute(Void avoid) {
             siparsiler.clear();
             toplamfiyat = 0.0;
-            for (YdkSiparisler m : ydkSiparislerList) {
 
+            for (YdkSiparisler m : ydkSiparislerList) {
                 masaSiparisAl sal = new masaSiparisAl();
                 sal.setId(m.getId());
                 sal.setAd(m.getAd());
+                sal.setAdet(m.getAdet());
                 sal.setFiyat(m.getFiyat());
-                toplamfiyat = toplamfiyat + Double.parseDouble(m.getFiyat());
+                fiyat =  Double.parseDouble(m.getFiyat())*(m.getAdet());
+                toplamfiyat = toplamfiyat + fiyat;
                 siparsiler.add(sal);
+
             }
 
             if (masa != null) {
@@ -154,6 +158,7 @@ public class siparis_activity extends AppCompatActivity {
             masakkisi.setText(masakapasite);
             masadurum.setText(secilimasadurumu);
             textView1.setText(" TOPLAM : " + toplamfiyat.toString() + " TL");
+
 
 
             SimpleDateFormat dakika = new SimpleDateFormat("HH:mm:ss");
@@ -183,7 +188,6 @@ public class siparis_activity extends AppCompatActivity {
             //tarih.format(date);
 
             // Servisler her zaman forların dısında olmalıdır. İstisnalar Hariç
-
             SiparisService s = new SiparisService();
             MenuService menuService = new MenuService();
             SiparisListesiService siparisListesiService = new SiparisListesiService();
@@ -266,22 +270,25 @@ public class siparis_activity extends AppCompatActivity {
 
             TextView msid = (TextView) satirView.findViewById(R.id.msid);
             TextView spad = (TextView) satirView.findViewById(R.id.lblmsad);
+            TextView spadet= (TextView) satirView.findViewById(R.id.lbladet);
             TextView spfyt = (TextView) satirView.findViewById(R.id.lblfiyat);
-            final Button btsil = (Button) satirView.findViewById(R.id.btnekle);
+            final Button btsil = (Button) satirView.findViewById(R.id.btnsil);
 
             final MasaSecimiActivity ms = new MasaSecimiActivity();
             glnmasano = ms.gndrmasano;
             final masaSiparisAl msiparsal = arr.get(position);
 
             msid.setText(String.valueOf(msiparsal.getId()));
-            spad.setText(msiparsal.getAd().toString());
-            spfyt.setText(msiparsal.getFiyat());
+            spad.setText(msiparsal.getAd());
+            final Double fyat = Double.parseDouble(msiparsal.getFiyat()) *msiparsal.getAdet();
+            spadet.setText(  String.valueOf(msiparsal.getAdet()) + "x" + msiparsal.getFiyat());
+            spfyt.setText(fyat.toString());
 
             btsil.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     new DeleteYdkSiparisler(msiparsal.getId()).execute();
-                    toplamfiyat = toplamfiyat - Double.parseDouble(msiparsal.getFiyat());
+                    toplamfiyat = toplamfiyat - fyat;
                     textView1.setText(" TOPLAM : " + toplamfiyat.toString() + " TL");
                     arr.remove(position);
                     RefreshAdapter();

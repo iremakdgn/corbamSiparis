@@ -6,10 +6,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -96,11 +100,29 @@ public class siparisAlactivity extends AppCompatActivity {
             TextView msid = (TextView) satirView.findViewById(R.id.msid);
             final TextView mnad = (TextView) satirView.findViewById(R.id.lblmsad);
             final TextView mnfyt = (TextView) satirView.findViewById(R.id.lblfiyat);
-            ImageButton btekle = (ImageButton) satirView.findViewById(R.id.btnekle);
+            Button btekle = satirView.findViewById(R.id.btnekle);
+            final EditText adet = (EditText) satirView.findViewById(R.id.lbladet);
             final menu mn = arr.get(position);
             msid.setText(String.valueOf(mn.getId()));
             mnad.setText(mn.getAd());
             mnfyt.setText(mn.getFiyat());
+
+            adet.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                    mn.setAdet(Integer.parseInt(editable.toString()));
+                }
+            });
 
 
             btekle.setOnClickListener(new View.OnClickListener() {
@@ -116,8 +138,7 @@ public class siparisAlactivity extends AppCompatActivity {
                     });
                     builder.setButton(AlertDialog.BUTTON_POSITIVE, "EVET", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            new AsyncSiparisEkle(mn.getAd(), mn.getId(), mn.getFiyat(), glnmasano).execute();
-
+                            new AsyncSiparisEkle(mn.getAd(), mn.getId(), mn.getFiyat(), glnmasano, mn.getAdet()).execute();
                         }
                     });
                     builder.show();
@@ -134,12 +155,14 @@ public class siparisAlactivity extends AppCompatActivity {
             int urunid;
             String fiyat;
             String masaNo;
+            int adet;
 
-            public AsyncSiparisEkle(String ad, int urunid, String fiyat, String masaNo) {
+            public AsyncSiparisEkle(String ad, int urunid, String fiyat, String masaNo, int adet) {
                 this.ad = ad;
                 this.urunid = urunid;
                 this.fiyat = fiyat;
                 this.masaNo = masaNo;
+                this.adet = adet;
             }
 
             @Override
@@ -151,6 +174,7 @@ public class siparisAlactivity extends AppCompatActivity {
                     YdkSiparislerService ydkSiparislerService = new YdkSiparislerService();
                     YdkSiparisler ydkSiparis = new YdkSiparisler();
                     ydkSiparis.setAd(ad);
+                    ydkSiparis.setAdet(adet);
                     ydkSiparis.setUrunid(urunid);
                     ydkSiparis.setFiyat(fiyat);
                     ydkSiparis.setMasano(masaNo);

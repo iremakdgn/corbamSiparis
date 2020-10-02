@@ -23,7 +23,15 @@
             android:id="@+id/lblmsad"
             android:gravity="center"
             android:textStyle="bold"
-            android:layout_width="213dp"
+            android:layout_width="170dp"
+            android:layout_height="80px"
+            android:text="DENE"
+            android:textSize="40px"></TextView>
+        <TextView
+            android:id="@+id/lbladet"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_width="84dp"
             android:layout_height="80px"
             android:text="DENE"
             android:textSize="40px"></TextView>
@@ -38,7 +46,7 @@
             android:textSize="40px"></TextView>
 
         <Button
-            android:id="@+id/btnekle"
+            android:id="@+id/btnsil"
             android:layout_width="120px"
             android:layout_marginLeft="20dp"
             android:layout_height="60px"

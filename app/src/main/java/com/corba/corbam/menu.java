@@ -1,12 +1,13 @@
 package com.corba.corbam;
 
 public class menu {
-    private int id;
+    private int id, adet;
     private String ad,fiyat,tur;
 
     public menu() {
         this.id = 0;
         this.ad = null;
+        this.adet=0;
         this.fiyat = null;
         this.tur = null;
     }
@@ -41,6 +42,10 @@ public class menu {
     public void setFiyat(String fiyat) {
         this.fiyat = fiyat;
     }
+
+    public int getAdet() {return adet;}
+
+    public void setAdet(int adet) {this.adet=adet;}
 
     public String getTur() {
         return tur;

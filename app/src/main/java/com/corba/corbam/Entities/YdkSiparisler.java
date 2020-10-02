@@ -6,20 +6,17 @@ import com.google.gson.annotations.SerializedName;
 public class YdkSiparisler {
 
     @SerializedName("id")
-    @Expose
     private Integer id;
     @SerializedName("ad")
-    @Expose
     private String ad;
     @SerializedName("urunid")
-    @Expose
     private Integer urunid;
     @SerializedName("fiyat")
-    @Expose
     private String fiyat;
     @SerializedName("masano")
-    @Expose
     private String masano;
+    @SerializedName("adet")
+    private int adet;
 
     public Integer getId() {
         return id;
@@ -59,6 +56,13 @@ public class YdkSiparisler {
 
     public void setMasano(String masano) {
         this.masano = masano;
+    }
+    public Integer getAdet() {
+        return adet;
+    }
+
+    public void setAdet(Integer adet) {
+        this.adet = adet;
     }
 }
 

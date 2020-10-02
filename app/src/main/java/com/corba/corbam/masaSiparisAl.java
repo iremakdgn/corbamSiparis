@@ -1,22 +1,23 @@
 package com.corba.corbam;
 
 public class masaSiparisAl {
-    private int id,masano;
-    private String ad,adet,fiyat,po_gram,tur;
+    private int id,masano, adet;
+    private String ad,fiyat,po_gram,tur;
 
     public masaSiparisAl() {
         this.id = 0;
         this.masano = 0;
         this.ad = null;
-        this.adet = null;
+        this.adet = 0;
         this.fiyat = null;
         this.po_gram = null;
         this.tur = null;
     }
 
-    public masaSiparisAl(int id, String ad, String fiyat) {
+    public masaSiparisAl(int id, String ad, int adet, String fiyat) {
         this.id = id;
         this.ad = ad;
+        this.adet=adet;
         this.fiyat = fiyat;
     }
 
@@ -44,11 +45,11 @@ public class masaSiparisAl {
         this.ad = ad;
     }
 
-    public String getAdet() {
+    public int getAdet() {
         return adet;
     }
 
-    public void setAdet(String adet) {
+    public void setAdet(int adet) {
         this.adet = adet;
     }
 
